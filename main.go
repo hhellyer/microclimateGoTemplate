@@ -1,16 +1,15 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"io"
+	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi there!")
+func hello(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello world!")
 }
 
 func main() {
-    http.HandleFunc("/", handler)
-    log.Fatal(http.ListenAndServe(":5000", nil))
+	http.HandleFunc("/", hello)
+	http.ListenAndServe(":8000", nil)
 }
