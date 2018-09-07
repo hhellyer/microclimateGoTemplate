@@ -5,11 +5,12 @@ import (
 	"net/http"
 )
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello world!")
+// Respond to call on endpoint
+func respond(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello from microclimate")
 }
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/", respond)
 	http.ListenAndServe(":8000", nil)
 }
