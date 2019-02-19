@@ -1,1 +1,1 @@
-# microclimateGoTemplate
+# [PROJ_NAME_PLACEHOLDER]
