@@ -8,7 +8,7 @@ import (
 
 // Respond to call on endpoint
 func respond(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello from your Go sample application running in Microclimate!")
+	io.WriteString(w, "Hello from your Go sample application running in Codewind!")
 	fmt.Printf("main.go: Go app endpoint response\n")
 }
 
