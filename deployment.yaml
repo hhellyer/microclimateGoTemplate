@@ -1,0 +1,35 @@
+# Source: microclimategotemplate/templates/deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "microclimategotemplate-deployment"
+  labels:
+    chart: 'microclimategotemplate-0.1.0'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "microclimategotemplate-selector"
+        version: "current"
+    spec:
+      containers:
+      - name: "microclimategotemplate"
+        image: "REPLACEME"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+        resources:
+        env:
+        - name: PORT
+          value: "8000"
+
+
